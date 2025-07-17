@@ -7,8 +7,42 @@
     <meta name="author" content="Pinky">
     <title>Reimagine Movement</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body>
+<body> 
+<!-- Background Image -->
     <div class="background"></div>
+<!-- Nav Bar with Logo and Button -->
+    <nav>
+    <a href="#home"><img src="Images/reimagine 25 logo@3x.png" alt="ReimagineConference Logo" class="logo"/></a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">  </button>
+    <ul>
+        <li> <a href="#Speakers" style="text-decoration: none;">Speakers</a></li>
+        <li> <a href="#Theme" style="text-decoration: none;">Theme</a></li>
+        <li> <a href="#Schedule" style="text-decoration: none;">Schedule</a></li>
+        <li> <a href="#Pricing" style="text-decoration: none;">Pricing</a></li>
+    </ul>
+    <a href="https://forms.gle/EDXAVCFkFahF1A8a9" class="registerButton">Register Now</a>
+    </nav>
+
+    <script>
+      // Hamburger menu toggle
+      const navToggle = document.querySelector('.nav-toggle');
+      const navUl = document.querySelector('nav ul');
+      navToggle.addEventListener('click', function() {
+        navUl.classList.toggle('active');
+        const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', !expanded);
+      });
+      // Optional: Close menu when clicking a link (mobile UX)
+      navUl.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth <= 900) {
+            navUl.classList.remove('active');
+            navToggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+    </script>
 </body>
 </html>
